@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Taille de police : libellés affichés et valeurs enregistrées (en sp) -->
+    <string-array name="tailles_libelles">
+        <item>Petite (14 sp)</item>
+        <item>Moyenne (16 sp)</item>
+        <item>Grande (20 sp)</item>
+    </string-array>
+    <string-array name="tailles_valeurs">
+        <item>14</item>
+        <item>16</item>
+        <item>20</item>
+    </string-array>
+
+    <!-- Couleur préférée : couleurs foncées, lisibles sur le fond clair de l'application -->
+    <string-array name="couleurs_libelles">
+        <item>Noir</item>
+        <item>Bleu</item>
+        <item>Vert</item>
+        <item>Rouge</item>
+        <item>Violet</item>
+    </string-array>
+    <string-array name="couleurs_valeurs">
+        <item>#000000</item>
+        <item>#1565C0</item>
+        <item>#2E7D32</item>
+        <item>#C62828</item>
+        <item>#6A1B9A</item>
+    </string-array>
+</resources>

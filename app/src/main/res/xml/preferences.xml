@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/pref_cat_affichage">
+
+        <ListPreference
+            app:key="taille_police"
+            app:title="@string/pref_taille_titre"
+            app:entries="@array/tailles_libelles"
+            app:entryValues="@array/tailles_valeurs"
+            app:defaultValue="16"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:key="couleur_preferee"
+            app:title="@string/pref_couleur_titre"
+            app:entries="@array/couleurs_libelles"
+            app:entryValues="@array/couleurs_valeurs"
+            app:defaultValue="#000000"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pref_cat_liste">
+
+        <SwitchPreferenceCompat
+            app:key="appel_depuis_liste"
+            app:title="@string/pref_appel_titre"
+            app:summaryOn="@string/pref_appel_on"
+            app:summaryOff="@string/pref_appel_off"
+            app:defaultValue="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

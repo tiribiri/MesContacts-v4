@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mescontacts.data.Contact
 import com.example.mescontacts.databinding.FragmentListeContactsBinding
 
-/** Écran Liste : recherche, RecyclerView, bouton « + », bouton Appeler par ligne selon la préférence. */
+
 class ListeContactsFragment : Fragment() {
 
     private var _binding: FragmentListeContactsBinding? = null

@@ -232,6 +232,22 @@ class DetailContactFragment : Fragment() {
         }
         val nom = "${binding.editLastName.text.toString().trim()} ${binding.editFirstName.text.toString().trim()}"
             .trim().ifEmpty { getString(R.string.title_new) }
+
+        // Sans clé API Google Maps : on ouvre l'application Google Maps du téléphone
+        // avec un Intent implicite (URI geo:), comme ACTION_DIAL pour le composeur. Aucune clé nécessaire.
+        val lat = coords.first
+        val lng = coords.second
+        if (!BuildConfig.HAS_MAPS_KEY && lat != null && lng != null) {
+            val uri = Uri.parse("geo:$lat,$lng?q=$lat,$lng(${Uri.encode(nom)})")
+            try {
+                startActivity(Intent(Intent.ACTION_VIEW, uri))
+            } catch (e: ActivityNotFoundException) {
+                // Aucune application de carte installée : on affiche l'écrate (message explicite)n Car
+                (requireActivity() as MainActivity).ouvrirCarte(contactId, nom, lat, lng)
+            }
+            return
+        }
+
         (requireActivity() as MainActivity).ouvrirCarte(contactId, nom, coords.first, coords.second)
     }
 
@@ -371,7 +387,7 @@ class DetailContactFragment : Fragment() {
         val coords = lireCoordonnees()
         if (coords == null) {
             firstInvalid = firstInvalid
-                ?: if (binding.layoutLatitude.error != null) binding.editLatitude else binding.editLongitude
+                ?: if(binding.layoutLatitude.error != null) binding.editLatitude else binding.editLongitude
         }
         if (firstInvalid != null || coords == null) {
             firstInvalid?.requestFocus()
